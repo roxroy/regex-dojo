@@ -10,5 +10,6 @@ app.set('view engine', 'pug')
 app.set('views', __dirname + '/views');
 
 app.get('/', routes.index);
+app.get('/about', routes.about);
 
 app.listen(process.env.PORT || 3000);
