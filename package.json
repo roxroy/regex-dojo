@@ -1,0 +1,25 @@
+{
+  "name": "regex-tutor",
+  "version": "1.0.0",
+  "description": "Learn to master Regular Expressions.",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roxroy/regex-tutor.git"
+  },
+  "keywords": [
+    "MERN",
+    "node"
+  ],
+  "bugs": {
+    "url": "https://github.com/roxroy/regex-tutor/issues"
+  },
+  "homepage": "https://github.com/roxroy/regex-tutor#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "pug": "^2.0.0-rc.2"
+  }
+}
