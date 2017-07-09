@@ -2,10 +2,31 @@ doctype html
 html(lang='en')
   head
     title Regular Expressions Tutor
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
-    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
-    link(rel="stylesheet", href="/app.css")
-    script(src="/app.js")
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto+Mono')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css')
+
+    link(rel='stylesheet', href='/app.css')
+    script(src='/app.js')
   body
+    nav.light-blue.lighten-1(role='navigation')
+      .nav-wrapper.container
+        a#logo-container.brand-logo(href='#') Logo
+        ul.right.hide-on-med-and-down
+          li
+            a(href='/') Home
+          li
+            a(href='/train') Train
+          li
+            a(href='/dashboard') Dashboard
+          li
+            a(href='/about') About
+          li
+            a(href='/signin') Sign in
+        ul#nav-mobile.side-nav
+          li
+            a(href='#') Navbar Link
+        a.button-collapse(href='#', data-activates='nav-mobile')
+          i.material-icons menu
     block content
