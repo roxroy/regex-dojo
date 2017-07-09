@@ -1,4 +1,5 @@
 data
-public
+public/build
+
 # Dependency directories
 node_modules

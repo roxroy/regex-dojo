@@ -4,7 +4,7 @@
   "description": "Learn to master Regular Expressions.",
   "scripts": {
     "start": "node server/index.js",
-    "bundle": "webpack --watch",
+    "build": "webpack --watch",
     "heroku-build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
