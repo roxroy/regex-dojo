@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        Hello From React
+        Hello From React - Dashboard Module
       </div>
     );
   }
