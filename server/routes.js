@@ -1,7 +1,19 @@
+exports.about = function(req, res){
+  res.render('about')
+}
+
 exports.index = function(req, res){
   res.render('index')
 }
 
-exports.about = function(req, res){
-  res.render('about')
+exports.dashboard = function(req, res){
+  res.render('dashboard')
+}
+
+exports.signin = function(req, res){
+  res.render('signin')
+}
+
+exports.train = function(req, res){
+  res.render('train')
 }

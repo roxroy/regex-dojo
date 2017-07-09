@@ -10,13 +10,8 @@ app.set('views', __dirname + '/views');
 
 app.get('/', routes.index);
 app.get('/about', routes.about);
-
-app.get('/dashboard', function(request, response) {
-  response.sendFile(path.resolve(__dirname, '../public', 'dashboard.html'));
-});
-
-app.get('/train', function(request, response) {
-  response.sendFile(path.resolve(__dirname, '../public', 'train.html'));
-});
+app.get('/dashboard', routes.dashboard);
+app.get('/train', routes.train);
+app.get('/signin', routes.signin);
 
 app.listen(process.env.PORT || 3000);
