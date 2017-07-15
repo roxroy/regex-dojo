@@ -24,7 +24,10 @@
   "homepage": "https://github.com/roxroy/regex-tutor#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "pug": "^2.0.0-rc.2"
+    "pug": "^2.0.0-rc.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router": "2.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

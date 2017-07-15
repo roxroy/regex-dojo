@@ -2,13 +2,10 @@ const path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: { 
-    dashboard : './client/dashboard/index.js',
-    train: './client/train/index.js'
-  },
+  entry: './client/index.js',
   output: {
     path: path.resolve('public/build'),
-    filename:  '[name]-app.js'
+    filename:  'bundle-app.js'
   },
   resolve: {
      extensions: ['.jsx', '.js', '.css'],
@@ -31,7 +28,7 @@ module.exports = {
   },
   // Use the plugin to specify the resulting filename (and add needed behavior to the compiler)
   plugins: [
-        new ExtractTextPlugin("[name]-app.css")
+        new ExtractTextPlugin("bundle-app.css")
   ],
   devtool: "source-map"
 }
