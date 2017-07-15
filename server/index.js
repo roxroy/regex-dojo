@@ -12,6 +12,8 @@ app.get('/', routes.index);
 app.get('/about', routes.about);
 app.get('/dashboard', routes.dashboard);
 app.get('/train', routes.train);
+app.get('/spar', routes.spar);
+app.get('/fight', routes.fight);
 app.get('/signin', routes.signin);
 
 app.listen(process.env.PORT || 3000);
