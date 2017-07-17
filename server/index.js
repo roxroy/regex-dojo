@@ -10,7 +10,7 @@ app.set('views', __dirname + '/views');
 
 app.get('/', routes.index);
 app.get('/about', routes.about);
-app.get('/dashboard', routes.dashboard);
+app.get('/app/dojo', routes.dashboard);
 app.get('/signin', routes.signin);
 
 app.listen(process.env.PORT || 3000);

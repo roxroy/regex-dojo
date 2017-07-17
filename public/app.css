@@ -1,3 +1,74 @@
 body {
   min-height: 600px;
 }
+
+.app-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#scroll {
+  width: 100%;
+}
+
+.scroll {
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  background:
+  radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+  
+}
+
+.scroll-body {
+  max-height: 2000px;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 40px 20px; 
+  background: linear-gradient(45deg, #dca 12%, transparent 0, transparent 88%, #dca 0),
+      linear-gradient(135deg, transparent 37%, #a85 0, #a85 63%, transparent 0),
+      linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 0) #753;
+      background-size: 25px 25px;  
+}
+
+.scroll-folded {
+  height: 50px;
+  max-height: 50px;
+}
+
+.level-card > .card-image > img {
+  height: 250px;
+}
+
+.level-card > .card-action {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.level-card > .card-action > a {  
+  padding: 0 1rem;
+}
+
+.level-card > .card-action > a:nth-child(2) {  
+  margin: 0 5px;
+}
+
+.card-content > dl {
+  margin: 0;
+}
+
+.card-content > dl > dt {
+  font-weight: bold;
+}
+
+.card-content > dl > dd {
+  margin: 0
+}
