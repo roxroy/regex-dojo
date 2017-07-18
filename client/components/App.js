@@ -24,7 +24,7 @@ class App extends React.Component {
     if (!this.state.loading) document.querySelectorAll(".scroll-body")[0].classList.remove("scroll-folded");
     return <div>
         <div className="row">
-          <div className="col offset-l3 offset s12 l6">
+          <div className="col offset-l3 s12 l6">
             <Profile profile={this.state.profile} />
           </div>
         </div>

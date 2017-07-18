@@ -4,7 +4,7 @@ class Profile extends React.Component {
   render() {
     if (!this.props.profile) return null;
 
-    return <div className="card horizontal">
+    return <div className="card horizontal profile">
         <div className="card-image">
             <img src={this.props.profile.img}/>
         </div>

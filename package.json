@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "webpack --watch",
+    "dev": "npm-run-all --parallel build start",
     "heroku-build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "localtunnel": "lt --port 3000",

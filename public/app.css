@@ -26,7 +26,7 @@ body {
 }
 
 .scroll-body {
-  max-height: 2000px;
+  max-height: 6000px;
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
@@ -39,36 +39,44 @@ body {
 }
 
 .scroll-folded {
-  height: 50px;
-  max-height: 50px;
+  height: 0;
+  max-height: 0;
+  padding: 0;
 }
 
-.level-card > .card-image > img {
+.level > .card-image > img {
   height: 250px;
 }
 
-.level-card > .card-action {
+.level > .card-action {
   text-align: center;
   padding-left: 0;
   padding-right: 0;
 }
 
-.level-card > .card-action > a {  
+.level > .card-action > a {  
   padding: 0 1rem;
 }
 
-.level-card > .card-action > a:nth-child(2) {  
+.level > .card-action > a:nth-child(2) {  
   margin: 0 5px;
 }
 
-.card-content > dl {
+.profile > .card-stacked > .card-content > dl {
   margin: 0;
 }
 
-.card-content > dl > dt {
+.profile > .card-stacked > .card-content > dl > dt {
   font-weight: bold;
 }
 
-.card-content > dl > dd {
+.profile > .card-stacked > .card-content > dl > dd {
   margin: 0
+}
+
+.player {
+  width: 300px;
+}
+.player > .health {
+  background: red;
 }

@@ -12,9 +12,9 @@ render((
   <Router>
   <div>
     <Route exact path="/app/dojo" component={App}/>
-    <Route exact path="/app/dojo/train" component={Train}/>
-    <Route exact path="/app/dojo/spar" component={Spar}/>
-    <Route exact path="/app/dojo/fight" component={Fight}/>
+    <Route exact path="/app/dojo/level/:level/train" component={Train}/>
+    <Route exact path="/app/dojo/level/:level/spar" component={Spar}/>
+    <Route exact path="/app/dojo/level/:level/fight" component={Fight}/>
     <Route exact path="/app/dojo/cheatsheet" component={Cheatsheet}/>
   </div>
   </Router>
