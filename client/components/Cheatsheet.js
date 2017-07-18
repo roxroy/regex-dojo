@@ -1,11 +1,18 @@
 import React from 'react'
+import Scroll from './Scroll'
 
 class Cheatsheet extends React.Component {
   render() {
+    return (<div>
+          <div className="card horizontal">
+            <Scroll>
+              <h2>Cheatsheet</h2>
+              <div className="row">
 
-    return <div className="card horizontal">
-      <h2>Cheatsheet2</h2>
-    </div>
+              </div>
+            </Scroll>
+          </div>   
+        </div>)
   }
 }
 
