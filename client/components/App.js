@@ -92,7 +92,12 @@ class App extends React.Component {
           <div className="col offset-l3 offset s12 l6">
             <Profile profile={this.state.profile} />
           </div>
-        </div>  
+        </div>
+        <div className="card-panel teal lighten-2">
+          <h4 className="white-text center-align"><NavLink to="/cheatsheet">Cheatsheet</NavLink>
+          </h4>
+        </div>
+            
         <Scroll>
           <div className="row">
             {this.state.levels.map(function(obj, i){

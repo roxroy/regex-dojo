@@ -6,6 +6,7 @@ import App from './components/App'
 import Train from './components/Train'
 import Spar from './components/Spar'
 import Fight from './components/Fight'
+import Cheatsheet from './components/Cheatsheet'
 import './components/style.css'
 
 render((
@@ -14,5 +15,6 @@ render((
     <Route path="/train" component={Train}/>
     <Route path="/spar" component={Spar}/>
     <Route path="/fight" component={Fight}/>
+    <Route path="/cheatsheet" component={Cheatsheet}/>
   </Router>
 ), document.getElementById('root'))
