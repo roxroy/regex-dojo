@@ -37,31 +37,27 @@ html(lang='en')
       li
         a.black-text(href='/signin') Sign in       
     block content   
-  <footer class="page-footer blue-grey lighten-5">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="black-text">Links</h5>
-          <ul>
-            <li><a class="black-text text-lighten-3" href="#!">Home</a></li>
-            <li><a class="black-text text-lighten-3" href="#!">About</a></li>
-          </ul>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="black-text">Connect</h5>
-          <ul>
-            <li><a class="black-text text-lighten-3" href="#!">Github</a></li>
-            <li><a class="black-text text-lighten-3" href="#!">Share Twitter</a></li>
-            <li><a class="black-text text-lighten-3" href="#!">Share Facebook</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container black-text"> © 2017 Copyright Text
-      </div>
-    </div>
-  </footer>     
+  footer.page-footer.blue-grey.lighten-5
+    div.container
+      div.row
+        div.col.l6.s12
+          h5.black-text Links
+          ul
+            li
+              a.black-text.text-lighten-3(href="#!") Home
+            li
+              a.black-text.text-lighten-3(href="#!") About
+        div.col.l4.offset-l2.s12
+          h5.black-text Connect
+          ul
+            li
+              a.black-text.text-lighten-3(href="#!") Github
+            li
+              a.black-text.text-lighten-3(href="#!") Share Twitter
+            li
+              a.black-text.text-lighten-3(href="#!") Share Facebook
+    div.footer-copyright
+      div.container.black-text © 2017 Copyright Text    
   script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")
   script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js')
   script.

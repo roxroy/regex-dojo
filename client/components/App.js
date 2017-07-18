@@ -30,7 +30,7 @@ class App extends React.Component {
         </div>
         <div className="card-panel teal lighten-2">
           <h4 className="white-text center-align">
-           <Link to={{ pathname: '/cheatsheet', state: this.state.levels }}>Cheatsheet</Link>
+           <Link to={{ pathname: '/app/dojo/cheatsheet', state: {levels: this.state.levels} }}>Cheatsheet</Link>
           </h4>
         </div>
             

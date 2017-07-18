@@ -11,11 +11,11 @@ import './components/style.css'
 render((
   <Router>
   <div>
-    <Route path="/app/dojo" component={App}/>
-    <Route path="/train" component={Train}/>
-    <Route path="/spar" component={Spar}/>
-    <Route path="/fight" component={Fight}/>
-    <Route path="/cheatsheet" component={Cheatsheet}/>
+    <Route exact path="/app/dojo" component={App}/>
+    <Route exact path="/app/dojo/train" component={Train}/>
+    <Route exact path="/app/dojo/spar" component={Spar}/>
+    <Route exact path="/app/dojo/fight" component={Fight}/>
+    <Route exact path="/app/dojo/cheatsheet" component={Cheatsheet}/>
   </div>
   </Router>
 ), document.getElementById('root'))
