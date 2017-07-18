@@ -10,7 +10,7 @@ class Spar extends React.Component {
           <Player avatar={profileData.img} name={profileData.username} />
         </div>
         <div className="col s5 offset-s2">
-          <Player avatar="/images/classmate.svg" name="Karate Kid" />
+          <Player avatar="/images/classmate-200.svg" name="Karate Kid" />
         </div>        
       </div>
       <h3>{this.props.match.params.level}</h3>
