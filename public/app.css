@@ -74,9 +74,6 @@ body {
   margin: 0
 }
 
-.player {
-  width: 300px;
-}
 .player > .health {
   background: red;
 }
