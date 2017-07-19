@@ -3,8 +3,7 @@ body {
 }
 
 .app-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin: 20px auto;
 }
 
 #scroll {
@@ -78,6 +77,33 @@ body {
   max-width: 100px;
 }
 
-.player > .health {
-  background: red;
+.spar > .spar-title > h3, .spar > .spar-title > p {
+  margin: 0;
+}
+
+.spar > .game-container > .answer-container > .col {
+  margin-top: 16px;
+}
+
+.player {
+  box-shadow: none;
+}
+
+.player > .card-image > img {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.player > .card-content {
+  padding: 10px 24px;
+}
+
+.player > .card-action.health {
+  border-radius: 50px;
+}
+
+@media only screen and (max-width: 360px) {
+  .flow-text {
+    font-size: 0.8rem;
+  }
 }
