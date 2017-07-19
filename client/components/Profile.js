@@ -4,12 +4,12 @@ class Profile extends React.Component {
   render() {
     if (!this.props.profile) return null;
 
-    return <div className="card horizontal profile">
+    return <div className="card small horizontal profile">
         <div className="card-image">
             <img src={this.props.profile.img}/>
         </div>
         <div className="card-stacked">
-            <div className="card-content">
+            <div className="card-content valign-wrapper">
                 <dl>
                     <dt>Current Rank:</dt>
                     <dd>

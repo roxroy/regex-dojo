@@ -4,7 +4,7 @@ var profileData = {
   created: '7/15/2017',
   currentRank: {
     name: 'Black',
-    img: '/images/belt.svg'
+    img: '/images/belt-200.svg'
   },  
   fightData: {    
     fightsWon: 5,

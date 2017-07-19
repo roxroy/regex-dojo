@@ -63,7 +63,7 @@ body {
 }
 
 .profile > .card-stacked > .card-content > dl {
-  margin: 0;
+  margin: 0 auto;
 }
 
 .profile > .card-stacked > .card-content > dl > dt {
@@ -72,6 +72,10 @@ body {
 
 .profile > .card-stacked > .card-content > dl > dd {
   margin: 0
+}
+
+.profile > .card-stacked > .card-content > dl > dd > img {
+  max-width: 100px;
 }
 
 .player > .health {
