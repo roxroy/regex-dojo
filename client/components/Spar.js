@@ -1,19 +1,10 @@
 import React from 'react'
 import Player from './Player'
 import Game from './Game'
+import Cheatsheet from './Cheatsheet'
 import profileData from '../api/profileData'
-
-var questions = [
-  {
-    question: 'Match any character, 0 or more',
-    answers: [
-      'answer 1',
-      'answer 2',
-      'answer 3',
-      'answer 4'
-    ]
-  }
-];
+import questions from '../api/questions'
+import levelData from '../api/levelData'
 
 class Spar extends React.Component {  
   render() {    
@@ -30,7 +21,8 @@ class Spar extends React.Component {
           <Player avatar="/images/classmate-200.svg" name="Karate Kid" />
         </div>        
       </div>
-      <Game question={questions[0].question} answers={questions[0].answers} />    
+      <Game cheatsheet question={questions[0].question} answers={questions[0].answers} />
+      <Cheatsheet answers={levelData.filter((level)=>{return level.title === this.props.match.params.level})} />    
     </div>
   }
 }

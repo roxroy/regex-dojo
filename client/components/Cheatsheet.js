@@ -1,27 +1,29 @@
 import React from 'react'
-import Scroll from './Scroll'
-import CheatsheetItem from './CheatsheetItem'
 
-class Cheatsheet extends React.Component {
-  render() {
-    var levels = this.props.location.state.levels;
-
-     return <div>
-      <div className="row">
-        {levels.map(function(obj, i){
-          return <div key={i} className="col s12">
-            <div className="card level-card">
-              <div className="card-content">
-                  <span className="card-title grey-text text-darken-4">{obj.title}</span>
-              </div>
-              <div className="card-action1">
-                <CheatsheetItem techniques={obj.techniques} />
-              </div>
+class Cheatsheet extends React.Component {  
+    componentDidMount() {
+        $('.modal').modal();
+    }
+    render() {    
+        return <div id="modal1" className="modal bottom-sheet teal lighten-3">
+            <div className="modal-content">
+                <h4 className="pink-text text-accent-2">{this.props.answers[0].title}</h4>
+                <table>
+                    <tbody>
+                        {this.props.answers[0].techniques.map(function(answer) {
+                            return <tr>
+                                <th>{answer.meta}</th>
+                                <td>{answer.description}</td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
             </div>
-          </div>
-        })}
-      </div>
-    </div>
+            <div className="divider"></div>
+            <div className="modal-footer teal lighten-3">
+                <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat pink-text text-accent-2">Close</a>
+            </div>
+    </div>    
   }
 }
 
