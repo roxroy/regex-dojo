@@ -5,8 +5,25 @@ import Cheatsheet from './Cheatsheet'
 import profileData from '../api/profileData'
 import questions from '../api/questions'
 import levelData from '../api/levelData'
+import quizzService from '../services/quizzService'
 
-class Spar extends React.Component {  
+class Spar extends React.Component { 
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentQuizz: {},
+      quizzCount: 1,
+      MAX_QUIZZ: 10,
+    };
+  }
+  
+  componentWillMount() {
+    const question = quizzService.getQuestion(levelData, this.props.match.params.level);
+    this.setState({
+      currentQuizz : question,
+    });
+  }
+
   render() {    
     return <div className="spar">
       <div className="row center-align spar-title">
@@ -21,7 +38,7 @@ class Spar extends React.Component {
           <Player avatar="/images/classmate-200.svg" name="Karate Kid" />
         </div>        
       </div>
-      <Game cheatsheet question={questions[0].question} answers={questions[0].answers} />
+      <Game cheatsheet quizz={this.state.currentQuizz} />
       <Cheatsheet answers={levelData.filter((level)=>{return level.title === this.props.match.params.level})} />    
     </div>
   }
