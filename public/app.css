@@ -85,6 +85,10 @@ body {
   margin-top: 16px;
 }
 
+.spar > .game-container > .answer-container > .col > button {
+  text-transform: none;
+}
+
 .player {
   box-shadow: none;
 }

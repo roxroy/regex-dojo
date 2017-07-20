@@ -13,6 +13,7 @@ class Spar extends React.Component {
       currentQuizz: {},
       quizzCount: 1,
       MAX_QUIZZ: 10,
+      levelId: props.location.state.levelId
     };
 
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
@@ -26,8 +27,8 @@ class Spar extends React.Component {
     this.getNextQuestion();
   }
 
-  getNextQuestion() {
-    const question = quizzService.getQuestion(levelData, this.props.match.params.level);
+  getNextQuestion() {        
+    const question = quizzService.getQuestion(levelData, this.state.levelId, this.state.currentQuizz.questionId);
     this.setState({
       currentQuizz : question,
     });
@@ -55,7 +56,7 @@ class Spar extends React.Component {
         quizz={this.state.currentQuizz}
         nextQuestion={this.handleNextQuestion} 
       />
-      <Cheatsheet answers={levelData.filter((level)=>{return level.title === this.props.match.params.level})} />    
+      <Cheatsheet answers={levelData.find((level)=>level.title === this.props.match.params.level)} />    
     </div>
   }
 }

@@ -32,7 +32,7 @@ class App extends React.Component {
           <div className="row">
             {this.state.levels.map(function(obj, i){
               return <div className="col s12 m6" key={i}>
-                <Level level={obj.title} description={obj.description} pic={obj.picture}/>
+                <Level level={obj.title} levelId={obj.id} description={obj.description} pic={obj.picture}/>
               </div>
             })}
           </div>
