@@ -10,8 +10,8 @@ class Cheatsheet extends React.Component {
                 <h4 className="pink-text text-accent-2">{this.props.answers[0].title}</h4>
                 <table>
                     <tbody>
-                        {this.props.answers[0].techniques.map(function(answer) {
-                            return <tr>
+                        {this.props.answers[0].techniques.map(function(answer, i) {
+                            return <tr key={i}>
                                 <th>{answer.meta}</th>
                                 <td>{answer.description}</td>
                             </tr>
