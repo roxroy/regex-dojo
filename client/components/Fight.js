@@ -2,7 +2,6 @@ import React from 'react'
 import Player from './Player'
 import Game from './Game'
 import profileData from '../api/profileData'
-import questions from '../api/questions'
 
 class Fight extends React.Component {  
   render() {    
