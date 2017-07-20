@@ -2,8 +2,41 @@ import React from 'react'
 import Player from './Player'
 import Game from './Game'
 import profileData from '../api/profileData'
+import levelData from '../api/levelData'
+import quizzService from '../services/quizzService'
 
 class Fight extends React.Component {  
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentQuizz: {},
+      quizzCount: 1,
+      MAX_QUIZZ: 10,
+      levelId: props.location.state.levelId
+    };
+
+    this.handleNextQuestion = this.handleNextQuestion.bind(this);
+  }
+
+  handleNextQuestion(isCorrectAnswer) {
+    let adjanceQuizzCount = this.state.quizzCount
+    this.setState({
+      quizzCount : adjanceQuizzCount,
+    });
+    this.getNextQuestion();
+  }
+
+  getNextQuestion() {        
+    const question = quizzService.getQuestion(levelData, this.state.levelId, this.state.currentQuizz.questionId);
+    this.setState({
+      currentQuizz : question,
+    });
+  }
+
+  componentWillMount() {
+    this.getNextQuestion();
+  }
+
   render() {    
     return <div className="spar">
       <div className="row center-align spar-title">
@@ -18,7 +51,10 @@ class Fight extends React.Component {
           <Player avatar="/images/enemy-200.svg" name="Bad Guy" />
         </div>        
       </div>
-      <Game question={questions[0].question} answers={questions[0].answers} />    
+      <Game 
+        quizz={this.state.currentQuizz}
+        nextQuestion={this.handleNextQuestion} 
+      />    
     </div>
   }
 }
