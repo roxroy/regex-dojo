@@ -1,6 +1,11 @@
 extends layout
 
+block style   
+  link(rel='stylesheet', href='/build/bundle-app.css')
+
 block content
   div.container.app-container
     div#root
-  script(src='/build/bundle-app.js')
+
+block scripts
+  script(src='/build/bundle-app.js')  

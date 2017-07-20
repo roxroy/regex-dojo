@@ -2,7 +2,7 @@ import React from 'react'
 
 class Scroll extends React.Component {
   render() {
-    return <div id="scroll">
+    return <div>
         <div className="scroll"></div>
             <div className="scroll-body scroll-folded">        
               {this.props.children}
