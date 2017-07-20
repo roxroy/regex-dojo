@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Scroll from './Scroll'
 import Level from './Level'
 import Profile from './Profile'
 import NavLink from './NavLink'
 import profileData from '../api/profileData'
 import levelData from '../api/levelData'
 
-class App extends React.Component { 
+class Map extends React.Component { 
   constructor(props) {
     super(props);
     this.state = {
@@ -27,18 +26,16 @@ class App extends React.Component {
           <div className="col offset-l2 s12 l8">
             <Profile profile={this.state.profile} />
           </div>
-        </div>            
-        <Scroll>
+        </div>                    
           <div className="row">
             {this.state.levels.map(function(obj, i){
               return <div className="col s12 m6" key={i}>
                 <Level level={obj.title} levelId={obj.id} description={obj.description} pic={obj.picture}/>
               </div>
             })}
-          </div>
-        </Scroll>
+          </div>      
     </div>
   }
 }
 
-export default App;
+export default Map;

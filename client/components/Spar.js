@@ -35,9 +35,14 @@ class Spar extends React.Component {
   }
 
   componentWillMount() {
-    this.getNextQuestion();
+    document.querySelectorAll(".scroll-body")[0].classList.add("scroll-fight");      
+    this.getNextQuestion();    
   }
 
+  componentWillUnmount() {
+      document.querySelectorAll(".scroll-body")[0].classList.remove("scroll-fight");      
+  }  
+    
   render() {    
     return <div className="spar">
       <div className="row center-align spar-title">
