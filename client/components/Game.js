@@ -9,13 +9,14 @@ class Game extends React.Component {
 
   checkAnswer(evt){
     let message ="Well done!";
-    if (evt.target.innerHTML != this.props.quizz.correctAnswer) {
+    let isCorrectAnswer = evt.target.innerHTML === this.props.quizz.correctAnswer;
+    if (!isCorrectAnswer) {
         message = `Correct answer was: ${this.props.quizz.correctAnswer}`;
     }
     //Materialize.Toast.removeAll();  did not work as documented
-    Materialize.toast(message, 4000) // 4000 is the duration of the toast
+    Materialize.toast(message, 2000);
 
-    this.props.nextQuestion();
+    this.props.nextQuestion(isCorrectAnswer);
   }
 
   render() {    

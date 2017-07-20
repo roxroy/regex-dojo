@@ -18,7 +18,7 @@ class Spar extends React.Component {
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
   }
 
-  handleNextQuestion() {
+  handleNextQuestion(isCorrectAnswer) {
     let adjanceQuizzCount = this.state.quizzCount
     this.setState({
       quizzCount : adjanceQuizzCount,
