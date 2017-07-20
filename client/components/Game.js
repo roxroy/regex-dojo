@@ -8,9 +8,12 @@ class Game extends React.Component {
   }
 
   checkAnswer(evt){
-    // TODO: provide feedback based on answer before moving to next question
-    console.log(evt.target.innerHTML);
-    console.log(evt.target.innerHTML == this.props.quizz.correctAnswer);
+    let message ="Well done!";
+    if (evt.target.innerHTML != this.props.quizz.correctAnswer) {
+        message = `Correct answer was: ${this.props.quizz.correctAnswer}`;
+    }
+    //Materialize.Toast.removeAll();  did not work as documented
+    Materialize.toast(message, 4000) // 4000 is the duration of the toast
 
     this.props.nextQuestion();
   }
