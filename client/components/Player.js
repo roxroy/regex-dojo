@@ -9,7 +9,7 @@ class Player extends React.Component {
         <div className="card-content">
             <span className="flow-text">{this.props.name}</span>
         </div>
-        <div className="card-action health red">
+        <div className={`card-action health health-${this.props.health}`}>
         </div>
     </div>
   }

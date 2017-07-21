@@ -115,6 +115,65 @@
 
 .player > .card-action.health {
   border-radius: 50px;
+  border:1px solid black;
+  position:relative;
+}
+
+.player > .card-action.health:after {
+    content: '\A';
+    position: absolute;
+    border-radius: 50px 0 0 50px;
+    background: red;
+    top: 0;
+    bottom: 0;
+    left: 0;    
+    transition: width .5s;
+}
+
+.player > .card-action.health-100:after {
+    border-radius: 50px;
+    width: 100%;
+}
+
+.player > .card-action.health-90:after {
+    width: 90%;
+}
+
+.player > .card-action.health-80:after {
+    width: 80%;
+}
+
+.player > .card-action.health-70:after {
+    width: 70%;
+}
+
+.player > .card-action.health-60:after {
+    width:60%;
+}
+
+.player > .card-action.health-50:after {
+    width: 50%;
+}
+
+.player > .card-action.health-40:after {
+    width: 40%;
+}
+
+.player > .card-action.health-30:after {
+    width: 30%;
+}
+
+.player > .card-action.health-20:after {
+    width: 20%;
+}
+
+.player > .card-action.health-10:after {
+    width: 10%;
+}
+
+.player > .card-action.health-0:after {
+    border-radius: 50px;
+    width: 0;
 }
 
 @media only screen and (max-width: 360px) {

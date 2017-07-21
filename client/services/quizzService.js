@@ -36,4 +36,5 @@ const getQuestion = (levelData, levelId, questionId) => {
 
 module.exports = {
 	getQuestion,
+	randomRange,	
 }

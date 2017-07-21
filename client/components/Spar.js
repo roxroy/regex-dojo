@@ -13,10 +13,24 @@ class Spar extends React.Component {
       currentQuizz: {},
       quizzCount: 1,
       MAX_QUIZZ: 10,
-      levelId: props.location.state.levelId
+      levelId: props.location.state.levelId,
+      health: 100
     };
 
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
+  }
+
+  startGame() {
+    this.getNextQuestion();
+    this.newTime();
+  }
+
+  newTime() {
+    this.opponentInterval = setInterval(()=> {
+      if (quizzService.randomRange(1, 10) > 6) this.setState({health: this.state.health-10});
+      clearInterval(this.opponentInterval);
+      this.newTime();
+     }, quizzService.randomRange(500,2000));
   }
 
   handleNextQuestion(isCorrectAnswer) {
@@ -35,8 +49,8 @@ class Spar extends React.Component {
   }
 
   componentWillMount() {
-    document.querySelectorAll(".scroll-body")[0].classList.add("scroll-fight");      
-    this.getNextQuestion();    
+    this.startGame();
+    document.querySelectorAll(".scroll-body")[0].classList.add("scroll-fight");              
   }
 
   componentWillUnmount() {
@@ -51,7 +65,7 @@ class Spar extends React.Component {
       </div>
       <div className="row"> 
         <div className="col s5">
-          <Player avatar={profileData.img} name={profileData.username} />
+          <Player avatar={profileData.img} name={profileData.username} health={this.state.health} />
         </div>
         <div className="col s5 offset-s2">
           <Player avatar="/images/classmate-200.svg" name="Karate Kid" />
@@ -59,7 +73,7 @@ class Spar extends React.Component {
       </div>
       <Game cheatsheet 
         quizz={this.state.currentQuizz}
-        nextQuestion={this.handleNextQuestion} 
+        nextQuestion={this.handleNextQuestion}         
       />
       <Cheatsheet answers={levelData.find((level)=>level.title === this.props.match.params.level)} />    
     </div>
