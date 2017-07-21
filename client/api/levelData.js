@@ -13,6 +13,16 @@ var levelData = [
       { id: 'A6', meta: 'b', description: 'The character b' },
       { id: 'A7', meta: 'abc', description: 'The string abc' },
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },
   {
     id: 'B',
@@ -27,6 +37,16 @@ var levelData = [
       { id: 'B5', meta: '\\w', description: 'Match any alphanumeric character (including underscore)' },
       { id: 'B6', meta: '\\W', description: 'Match any non-word character '},
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },
   {
     id: 'C',
@@ -38,6 +58,16 @@ var levelData = [
       { id: 'C2', meta: '[^abc]', description: "Match anything not in character set 'abc'" },
       { id: 'C3', meta: '[\\b]', description: 'Match a backspace' },
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },
   {
     id: 'D',
@@ -52,6 +82,16 @@ var levelData = [
       { id: 'D5', meta: '?=', description: 'Lookahead' },
       { id: 'D6', meta: '?!', description: 'Negative lookahead' },
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },
   {
     id: 'E',
@@ -66,6 +106,16 @@ var levelData = [
       { id: 'E5', meta: '?()|', description: 'If then else condition' },
       { id: 'E6', meta: '?#', description: 'Comment' },
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },
   {
     id: 'F',
@@ -77,6 +127,16 @@ var levelData = [
       { id: 'F2', meta: '{n,m}', description: 'Match at least n and at most m occurrences of the preceding character' },
       { id: 'F3', meta: '?', description: 'Match 0 or 1' },
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },
   {
     id: 'G',
@@ -90,6 +150,16 @@ var levelData = [
       { id: 'G4', meta: '\\t', description: 'Match a tab' },
       { id: 'G5', meta: '\\0', description: 'Match a NULL' },    
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },
   {
     id: 'H',
@@ -102,6 +172,16 @@ var levelData = [
       { id: 'H3', meta: '\\xhh', description: 'Match character with code hh (2 hex digits)' },
       { id: 'H4', meta: '\\uhhhh', description: 'Match character with code hhhh (4 hex digits)' },
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },
   {
     id: 'I',
@@ -114,6 +194,16 @@ var levelData = [
       { id: 'I3', meta: 'm', description: 'Multi-line search' },
       { id: 'I4', meta: 'y', description: '"sticky" search match starting at current position in target string' },
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   },       
   {
     id: 'J',
@@ -125,6 +215,16 @@ var levelData = [
       { id: 'J2', meta: '(?:x)', description: "Match 'x' but do not remember the match" },
       { id: 'J3', meta: '\\n', description: 'A back reference to the last substring matching the n parenthetical in the regex' },
     ],
+    opponent: {
+      spar: {
+        name: 'Training Partner',
+        img: '/images/classmate-200.svg'
+      },
+      fight: {
+        name: 'Bad Guy',
+        img: '/images/enemy-200.svg'        
+      }
+    }
   }           
 ];
 
