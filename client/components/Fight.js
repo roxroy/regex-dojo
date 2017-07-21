@@ -11,10 +11,9 @@ class Fight extends React.Component {
     super(props);
     this.state = {
       currentQuizz: {},
-      quizzCount: 1,
-      MAX_QUIZZ: 10,
       levelId: props.location.state.levelId,
-      health: 100,
+      playerHealth: 100,
+      opponentHealth: 100,
       gameMode: props.match.path.split('/').pop(),
       level: props.match.params.level
     };
@@ -28,18 +27,43 @@ class Fight extends React.Component {
   }
 
   newTime() {
-    this.opponentInterval = setInterval(()=> {
-      if (quizzService.randomRange(1, 10) > 6) this.setState({health: this.state.health-10});
+    this.opponentInterval = setInterval(()=> { console.log('interval');
+      let playerHealth = this.state.playerHealth;
+
+      if (quizzService.randomRange(1, 10) > 6) {
+        playerHealth -= 10;
+
+        if (playerHealth <= 0) {
+          clearInterval(this.opponentInterval);
+          console.log("You Lose");
+          this.setState({playerHealth});
+          return;
+        }
+
+        this.setState({playerHealth});
+      }
+
       clearInterval(this.opponentInterval);
       this.newTime();
      }, quizzService.randomRange(500,2000));
   }
 
   handleNextQuestion(isCorrectAnswer) {
-    let adjanceQuizzCount = this.state.quizzCount
-    this.setState({
-      quizzCount : adjanceQuizzCount,
-    });
+    let opponentHealth = this.state.opponentHealth;
+
+    if (isCorrectAnswer) {
+      opponentHealth -= 10;
+
+      if (opponentHealth <= 0) {
+        clearInterval(this.opponentInterval);
+        console.log('You Win');
+        this.setState({opponentHealth});
+        return;
+      }
+
+      this.setState({opponentHealth});      
+    }
+
     this.getNextQuestion();
   }
 
@@ -67,10 +91,10 @@ class Fight extends React.Component {
       </div>
       <div className="row"> 
         <div className="col s5">
-          <Player avatar={profileData.img} name={profileData.username} health={this.state.health} />
+          <Player avatar={profileData.img} name={profileData.username} health={this.state.playerHealth} />
         </div>
         <div className="col s5 offset-s2">
-          <Player avatar={levelData[0].opponent[this.state.gameMode].img} name={levelData[0].opponent[this.state.gameMode].name} health={this.state.health} />
+          <Player avatar={levelData[0].opponent[this.state.gameMode].img} name={levelData[0].opponent[this.state.gameMode].name} health={this.state.opponentHealth} />
         </div>        
       </div>
       <Game cheatsheet={this.state.gameMode === 'spar'}
