@@ -88,20 +88,31 @@
   max-width: 100px;
 }
 
+.spar > .spar-title > h3 {
+  text-transform: uppercase;
+}
+
 .spar > .spar-title > h3, .spar > .spar-title > p {
   margin: 0;
+  font-weight: bold;
+}
+
+.spar > .game-container > .question {
+  font-weight: bold;
 }
 
 .spar > .game-container > .answer-container > .col {
-  margin-top: 16px;
+  margin-top: 16px;  
 }
 
 .spar > .game-container > .answer-container > .col > button {
   text-transform: none;
+  width: 80px;
 }
 
 .player {
   box-shadow: none;
+  background: transparent;
 }
 
 .player > .card-image > img {
@@ -115,8 +126,8 @@
 
 .player > .card-action.health {
   border-radius: 50px;
-  border:1px solid black;
-  position:relative;
+  border: 3px solid black;
+  position: relative;
 }
 
 .player > .card-action.health:after {

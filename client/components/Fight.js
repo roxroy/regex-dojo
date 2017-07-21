@@ -86,8 +86,8 @@ class Fight extends React.Component {
   render() {    
     return <div className="spar">
       <div className="row center-align spar-title">
-        <h3>{this.state.gameMode}</h3>
-        <p className="flow-text">{this.state.level}</p>
+        <h3 className='pink-text text-accent-2'>{this.state.gameMode}</h3>
+        <p className="flow-text text-darken-4">{this.state.level}</p>
       </div>
       <div className="row"> 
         <div className="col s5">
