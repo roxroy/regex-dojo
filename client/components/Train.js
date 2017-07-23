@@ -1,5 +1,4 @@
 import React from 'react'
-import levelData from '../api/levelData'
 import quizzService from '../services/quizzService'
 
 class Train extends React.Component {
