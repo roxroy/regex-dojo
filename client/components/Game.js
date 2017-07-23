@@ -31,16 +31,16 @@ class Game extends React.Component {
         }          
         <p className="question flow-text grey-text text-darken-4">{this.props.quizz.question}</p>
         <div className="row answer-container">
-            <div className="col s12 offset-m2 m4">
+            <div className="col offset-s2 s4">
                 <button onClick={this.checkAnswer} className="btn waves-effet waves-light pink accent-2">{this.props.quizz.answers[0]}</button>
             </div>
-            <div className="col s12 m4">
+            <div className="col s4">
                 <button onClick={this.checkAnswer} className="btn waves-effet waves-light pink accent-2">{this.props.quizz.answers[1]}</button>
             </div>
-            <div className="col s12 offset-m2 m4">
+            <div className="col offset-s2 s4">
                 <button onClick={this.checkAnswer} className="btn waves-effet waves-light pink accent-2">{this.props.quizz.answers[2]}</button>
             </div>
-            <div className="col s12 m4">
+            <div className="col s4">
                 <button onClick={this.checkAnswer} className="btn waves-effet waves-light pink accent-2">{this.props.quizz.answers[3]}</button>
             </div>                                    
         </div>

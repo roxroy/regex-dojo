@@ -2,8 +2,6 @@ import React from 'react'
 import Player from './Player'
 import Game from './Game'
 import Cheatsheet from './Cheatsheet'
-import profileData from '../api/profileData'
-import levelData from '../api/levelData'
 import quizzService from '../services/quizzService'
 
 class Fight extends React.Component {  
@@ -68,7 +66,7 @@ class Fight extends React.Component {
   }
 
   getNextQuestion() {        
-    const question = quizzService.getQuestion(levelData, this.state.levelId, this.state.currentQuizz.questionId);
+    const question = quizzService.getQuestion(this.props.location.state.levels, this.state.levelId, this.state.currentQuizz.questionId);
     this.setState({
       currentQuizz : question,
     });
@@ -91,17 +89,17 @@ class Fight extends React.Component {
       </div>
       <div className="row"> 
         <div className="col s5">
-          <Player avatar={profileData.img} name={profileData.username} health={this.state.playerHealth} />
+          <Player avatar={this.props.location.state.user.img} name={this.props.location.state.user.username} health={this.state.playerHealth} />
         </div>
         <div className="col s5 offset-s2">
-          <Player avatar={levelData[0].opponent[this.state.gameMode].img} name={levelData[0].opponent[this.state.gameMode].name} health={this.state.opponentHealth} />
+          <Player avatar={`/images/${this.state.gameMode}-200-${this.props.location.state.levels[this.state.levelId-1].belt}.png`} name={this.props.location.state.levels[this.state.levelId-1].opponents[this.state.gameMode]} health={this.state.opponentHealth} />
         </div>        
       </div>
       <Game cheatsheet={this.state.gameMode === 'spar'}
         quizz={this.state.currentQuizz}
         nextQuestion={this.handleNextQuestion} 
       />   
-      <Cheatsheet answers={levelData.find((level)=>level.title === this.props.match.params.level)} />     
+      <Cheatsheet answers={this.props.location.state.levels.find((level)=>level.id === this.state.levelId)} />     
     </div>
   }
 }

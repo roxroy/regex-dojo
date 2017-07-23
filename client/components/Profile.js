@@ -4,7 +4,7 @@ class Profile extends React.Component {
   render() {
     if (!this.props.profile) return null;
 
-    return <div className="card small horizontal profile">
+    return <div className="card small horizontal profile teal lighten-3">
         <div className="card-image">
             <img src={this.props.profile.img}/>
         </div>
@@ -13,7 +13,7 @@ class Profile extends React.Component {
                 <dl>
                     <dt>Current Rank:</dt>
                     <dd>
-                        <img src={this.props.profile.currentRank.img} alt={this.props.profile.currentRank.name}/>
+                        <img src={`/images/belt-200-${this.props.profile.belts[this.props.profile.belts.length-1]}.png`} alt={this.props.profile.belts[this.props.profile.belts.length-1]}/>
                     </dd>
                     <dt>Member Since:</dt>
                     <dd>{this.props.profile.created}</dd>

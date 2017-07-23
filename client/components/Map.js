@@ -3,20 +3,31 @@ import { Link } from 'react-router-dom'
 import Level from './Level'
 import Profile from './Profile'
 import NavLink from './NavLink'
-import profileData from '../api/profileData'
-import levelData from '../api/levelData'
 
 class Map extends React.Component { 
   constructor(props) {
     super(props);
     this.state = {
       levels: [],
+      profile: null,
       loading: true
     };
   }
 
-  componentWillMount() {
-    setTimeout(() => this.setState({levels: levelData, profile: profileData, loading: false}), 600);    
+  componentWillMount() {    
+    let user = fetch("http://localhost:3001/users/1")
+      .then((res) => res.json());
+    
+    let levels = fetch("http://localhost:3001/levels")
+      .then((res) => res.json());
+
+    Promise.all([user, levels]).then(([user, levels]) => {
+        this.setState({
+          levels: levels,
+          profile: user,
+          loading: false
+        });
+    });
   }
 
   render() {
@@ -28,9 +39,9 @@ class Map extends React.Component {
           </div>
         </div>                    
           <div className="row">
-            {this.state.levels.map(function(obj, i){
+            {this.state.levels.map((obj, i) => {
               return <div className="col s12 m6" key={i}>
-                <Level level={obj.title} levelId={obj.id} description={obj.description} pic={obj.picture}/>
+                <Level level={obj.title} levelId={obj.id} description={obj.description} pic={obj.picture} levels={this.state.levels} user={this.state.profile} />
               </div>
             })}
           </div>      

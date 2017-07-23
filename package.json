@@ -5,11 +5,12 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "webpack --watch",
-    "dev": "npm-run-all --parallel build start",
+    "dev": "npm-run-all --parallel build start-mockapi start",
     "heroku-build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "localtunnel": "lt --port 3000",
-    "share": "npm-run-all --parallel start localtunnel"
+    "localtunnel": "lt --port 3000 --subdomain regexdojo",
+    "share": "npm-run-all --parallel build start-mockapi start localtunnel",
+    "start-mockapi": "json-server --watch db/db.json --port 3001"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.1",
     "extract-text-webpack-plugin": "^2.1.0",
+    "json-server": "^0.11.2",
     "localtunnel": "^1.8.3",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.2",
