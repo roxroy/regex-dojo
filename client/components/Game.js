@@ -24,11 +24,7 @@ class Game extends React.Component {
   }
 
   render() {    
-    return <div className="game-container center-align"> 
-        {this.props.cheatsheet
-            ? <button className="btn waves-effet waves-light grey darken-1" data-target="modal1">Cheatsheet</button>
-            : ''
-        }          
+    return <div>     
         <p className="question flow-text grey-text text-darken-4">{this.props.quizz.question}</p>
         <div className="row answer-container">
             <div className="col offset-s2 s4">

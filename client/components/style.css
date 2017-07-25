@@ -90,15 +90,15 @@
   font-weight: bold;
 }
 
-.spar > .game-container > .question {
+.question {
   font-weight: bold;
 }
 
-.spar > .game-container > .answer-container > .col {
+.answer-container > .col {
   margin-top: 16px;  
 }
 
-.spar > .game-container > .answer-container > .col > button {
+.answer-container > .col > button {
   text-transform: none;
   width: 80px;
 }
