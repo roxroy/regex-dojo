@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Modal extends React.Component {  
     componentDidMount() {
@@ -11,7 +12,8 @@ class Modal extends React.Component {
             </div>
             <div className="divider"></div>
             <div className="modal-footer teal lighten-3">
-                <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat pink-text text-accent-2">Close</a>
+                <Link to="/app/dojo" className="modal-action modal-close waves-effect waves-green btn-flat pink-text text-accent-2">Finish</Link>
+                <button className="modal-action modal-close waves-effect waves-green btn-flat pink-text text-accent-2" onClick={this.props.startGame}>Play Again</button>
             </div>
     </div>    
   }

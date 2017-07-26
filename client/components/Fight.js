@@ -25,7 +25,7 @@ class Fight extends React.Component {
 
   startGame() {
     this.getNextQuestion();
-    this.setState({started: true});
+    this.setState({started: true, opponentHealth: 100, playerHealth: 100});
     this.newTime();
   }
 
@@ -48,7 +48,7 @@ class Fight extends React.Component {
 
       clearInterval(this.opponentInterval);
       this.newTime();
-     }, quizzService.randomRange(500,2000));
+     }, quizzService.randomRange(1000,4000));
   }
 
   handleNextQuestion(isCorrectAnswer) {
@@ -113,7 +113,7 @@ class Fight extends React.Component {
         }
       </div>            
       <Cheatsheet answers={this.props.location.state.levels.find((level)=>level.id === this.state.levelId)} />     
-      <Modal winner={this.state.winner} />
+      <Modal winner={this.state.winner} startGame={this.startGame} />
     </div>
   }
 }
