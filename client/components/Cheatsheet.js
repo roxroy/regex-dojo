@@ -1,9 +1,6 @@
 import React from 'react'
 
 class Cheatsheet extends React.Component {  
-    componentDidMount() {
-        $('.modal').modal();
-    }
     render() {    
         return <div id="modal1" className="modal bottom-sheet teal lighten-3">
             <div className="modal-content">

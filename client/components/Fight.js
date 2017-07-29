@@ -21,6 +21,7 @@ class Fight extends React.Component {
 
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
     this.startGame = this.startGame.bind(this);
+    this.showCheatsheet = this.showCheatsheet.bind(this);
   }
 
   startGame() {
@@ -39,7 +40,7 @@ class Fight extends React.Component {
         if (playerHealth <= 0) {
           clearInterval(this.opponentInterval);          
           this.setState({playerHealth, winner: 'You Lose'});
-          $('#modal2').modal('open');
+          $('#modal2').modal('open', {dismissible: false});
           return;
         }
 
@@ -60,7 +61,7 @@ class Fight extends React.Component {
       if (opponentHealth <= 0) {
         clearInterval(this.opponentInterval);
         this.setState({opponentHealth, winner: 'You Win'});
-        $('#modal2').modal('open');
+        $('#modal2').modal('open', {dismissible: false});
         return;
       }
 
@@ -75,6 +76,10 @@ class Fight extends React.Component {
     this.setState({
       currentQuizz: question,
     });
+  }
+
+  showCheatsheet() {
+    $('#modal1').modal('open');
   }
 
   componentWillMount() {
@@ -104,7 +109,7 @@ class Fight extends React.Component {
           <button disabled={this.state.started} className="btn waves-effect waves-light grey darken-1" onClick={this.startGame}>Start</button> 
         </div>        
         {this.state.gameMode === 'spar'
-            ? <button className="btn waves-effet waves-light grey darken-1" data-target="modal1">Cheatsheet</button>
+            ? <button className="btn waves-effet waves-light grey darken-1" onClick={this.showCheatsheet}>Cheatsheet</button>
             : ''
         }          
         {this.state.started 

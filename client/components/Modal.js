@@ -2,9 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 class Modal extends React.Component {  
-    componentDidMount() {
-        $('.modal').modal();
-    }
     render() {    
         return <div id="modal2" className="modal teal lighten-3">
             <div className="modal-content">
