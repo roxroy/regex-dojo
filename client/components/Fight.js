@@ -10,11 +10,11 @@ class Fight extends React.Component {
     super(props);
     this.state = {
       currentQuizz: {},
-      levelId: props.location.state.levelId,
+      levelId: props.levelId,
       playerHealth: 100,
       opponentHealth: 100,
-      gameMode: props.match.path.split('/').pop(),
-      level: props.match.params.level,
+      gameMode: props.gameMode,
+      level: props.level,
       winner: '',
       started: false
     };
@@ -61,6 +61,9 @@ class Fight extends React.Component {
       if (opponentHealth <= 0) {
         clearInterval(this.opponentInterval);
         this.setState({opponentHealth, winner: 'You Win'});
+        if (this.state.gameMode === 'fight') {
+          this.props.beltPromotion(this.state.levelId);
+        }
         $('#modal2').modal('open', {dismissible: false});
         return;
       }
@@ -72,7 +75,7 @@ class Fight extends React.Component {
   }
 
   getNextQuestion() {        
-    const question = quizzService.getQuestion(this.props.location.state.levels, this.state.levelId, this.state.currentQuizz.questionId);
+    const question = quizzService.getQuestion(this.props.levels, this.state.levelId, this.state.currentQuizz.questionId);
     this.setState({
       currentQuizz: question,
     });
@@ -98,10 +101,10 @@ class Fight extends React.Component {
       </div>
       <div className="row"> 
         <div className="col s5">
-          <Player avatar={this.props.location.state.user.img} name={this.props.location.state.user.username} health={this.state.playerHealth} />
+          <Player avatar={this.props.user.img} name={this.props.user.username} health={this.state.playerHealth} />
         </div>
         <div className="col s5 offset-s2">
-          <Player avatar={`/images/${this.state.gameMode}-200-${this.props.location.state.levels[this.state.levelId-1].belt}.png`} name={this.props.location.state.levels[this.state.levelId-1].opponents[this.state.gameMode]} health={this.state.opponentHealth} />
+          <Player avatar={`/images/${this.state.gameMode}-200-${this.props.levels[this.state.levelId-1].belt}.png`} name={this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]} health={this.state.opponentHealth} />
         </div>        
       </div>
       <div className="game-container center-align">
@@ -117,7 +120,7 @@ class Fight extends React.Component {
           : ''
         }
       </div>            
-      <Cheatsheet answers={this.props.location.state.levels.find((level)=>level.id === this.state.levelId)} />     
+      <Cheatsheet answers={this.props.levels.find((level)=>level.id === this.state.levelId)} />     
       <Modal winner={this.state.winner} startGame={this.startGame} />
     </div>
   }

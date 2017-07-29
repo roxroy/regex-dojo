@@ -5,14 +5,62 @@ import Train from './Train'
 import Fight from './Fight'
 
 class Scroll extends React.Component {  
+  constructor(props) {
+    super(props);
+    this.state = {
+      levels: [],
+      profile: null,
+      loading: true
+    };
+
+    this.beltPromotion = this.beltPromotion.bind(this);
+  }
+  
+  beltPromotion(levelId) {
+    let belt = this.state.levels.find((level)=> level.id === levelId).belt;
+    if (this.state.profile.belts.indexOf(belt) === -1) {
+      let profile = this.state.profile;
+      profile.belts = profile.belts.concat(belt);
+      this.setState({profile});
+      return true;
+    }
+
+    return false;
+  }
+
+  componentWillMount() {    
+    let user = fetch("http://localhost:3001/users/1")
+      .then((res) => res.json());
+    
+    let levels = fetch("http://localhost:3001/levels")
+      .then((res) => res.json());
+
+    Promise.all([user, levels]).then(([user, levels]) => {
+        this.setState({
+          levels: levels,
+          profile: user,
+          loading: false
+        });
+    });
+  }
+
   render() {
+    if (!this.state.loading) document.querySelectorAll(".scroll-body")[0].classList.remove("scroll-folded");
     return <div>
         <div className="scroll"></div>
             <div className="scroll-body scroll-folded">        
-              <Route exact path={`${this.props.match.url}`} component={Map}/>
-              <Route exact path={`${this.props.match.url}/level/:level/train`} component={Train} />
-              <Route exact path={`${this.props.match.url}/level/:level/spar`} component={Fight} />
-              <Route exact path={`${this.props.match.url}/level/:level/fight`} component={Fight} />
+              <Route exact path={`${this.props.match.url}`} render={()=>                
+                <Map levels={this.state.levels} user={this.state.profile} />
+              }/>
+              <Route exact path={`${this.props.match.url}/level/:level/train`} render={(props)=>
+                <Train gameMode={props.match.path.split('/').pop()} level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} user={this.state.profile} />
+              }/>
+              <Route exact path={`${this.props.match.url}/level/:level/spar`} render={(props)=>
+                <Fight gameMode={props.match.path.split('/').pop()} level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} user={this.state.profile} />
+              }/>
+              <Route exact path={`${this.props.match.url}/level/:level/fight`} render={(props)=>
+                <Fight gameMode={props.match.path.split('/').pop()} level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} user={this.state.profile} beltPromotion={this.beltPromotion} />
+              }/>
             </div>  
         <div className="scroll"></div>        
     </div>
