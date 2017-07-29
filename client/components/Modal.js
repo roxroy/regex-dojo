@@ -5,7 +5,8 @@ class Modal extends React.Component {
     render() {    
         return <div id="modal2" className="modal teal lighten-3">
             <div className="modal-content">
-                <h4 className="pink-text text-accent-2">{this.props.winner}</h4>
+                <h4 className="pink-text text-accent-2">{this.props.modalHeader}</h4>
+                <p>{this.props.modalContent}</p>
             </div>
             <div className="divider"></div>
             <div className="modal-footer teal lighten-3">

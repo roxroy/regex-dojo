@@ -15,7 +15,8 @@ class Fight extends React.Component {
       opponentHealth: 100,
       gameMode: props.gameMode,
       level: props.level,
-      winner: '',
+      modalHeader: '',
+      modalContent: '',
       started: false
     };
 
@@ -39,7 +40,8 @@ class Fight extends React.Component {
 
         if (playerHealth <= 0) {
           clearInterval(this.opponentInterval);          
-          this.setState({playerHealth, winner: 'You Lose'});
+          let modalHeader = 'Nice Try!', modalContent = `You have been defeated by ${this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]} :(`;       
+          this.setState({playerHealth, modalHeader, modalContent});
           $('#modal2').modal('open', {dismissible: false});
           return;
         }
@@ -60,10 +62,15 @@ class Fight extends React.Component {
 
       if (opponentHealth <= 0) {
         clearInterval(this.opponentInterval);
-        this.setState({opponentHealth, winner: 'You Win'});
+        let modalHeader = 'Congratulations!', modalContent = `You have defeated ${this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]}`;       
         if (this.state.gameMode === 'fight') {
-          this.props.beltPromotion(this.state.levelId);
+          let belt = this.props.beltPromotion(this.state.levelId);
+          if (belt) {
+            modalContent += ` and have been promoted to ${belt} belt`;
+          }    
         }
+        modalContent += '!';
+        this.setState({opponentHealth, modalHeader, modalContent});
         $('#modal2').modal('open', {dismissible: false});
         return;
       }
@@ -121,7 +128,7 @@ class Fight extends React.Component {
         }
       </div>            
       <Cheatsheet answers={this.props.levels.find((level)=>level.id === this.state.levelId)} />     
-      <Modal winner={this.state.winner} startGame={this.startGame} />
+      <Modal modalHeader={this.state.modalHeader} modalContent={this.state.modalContent} startGame={this.startGame} />
     </div>
   }
 }

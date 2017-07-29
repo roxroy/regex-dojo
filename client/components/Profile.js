@@ -13,7 +13,10 @@ class Profile extends React.Component {
                 <dl>
                     <dt>Current Rank:</dt>
                     <dd>
-                        <img src={`/images/belt-200-${this.props.profile.belts[this.props.profile.belts.length-1]}.png`} alt={this.props.profile.belts[this.props.profile.belts.length-1]}/>
+                        {this.props.profile.belts.length
+                            ? <img src={`/images/belt-200-${this.props.profile.belts[this.props.profile.belts.length-1]}.png`} alt={this.props.profile.belts[this.props.profile.belts.length-1]}/>
+                            : "n00b"
+                        }
                     </dd>
                     <dt>Member Since:</dt>
                     <dd>{this.props.profile.created}</dd>

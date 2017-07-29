@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import Map from './Map'
 import Train from './Train'
 import Fight from './Fight'
+import axios from 'axios'
 
 class Scroll extends React.Component {  
   constructor(props) {
@@ -22,18 +23,17 @@ class Scroll extends React.Component {
       let profile = this.state.profile;
       profile.belts = profile.belts.concat(belt);
       this.setState({profile});
-      return true;
+      return belt;
     }
 
     return false;
   }
 
   componentWillMount() {    
-    let user = fetch("http://localhost:3001/users/1")
-      .then((res) => res.json());
-    
-    let levels = fetch("http://localhost:3001/levels")
-      .then((res) => res.json());
+    let user = axios.get("http://localhost:3001/users/1")
+      .then((res) => res.data);
+    let levels = axios.get("http://localhost:3001/levels")
+      .then((res) => res.data);
 
     Promise.all([user, levels]).then(([user, levels]) => {
         this.setState({
