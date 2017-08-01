@@ -41,6 +41,11 @@ class Fight extends React.Component {
         if (playerHealth <= 0) {
           clearInterval(this.opponentInterval);          
           let modalHeader = 'Nice Try!', modalContent = `You have been defeated by ${this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]} :(`;       
+          if (this.state.gameMode === 'fight') {
+            this.props.updateUser(true, false);
+          } else {
+            this.props.updateUser(false);
+          }
           this.setState({playerHealth, modalHeader, modalContent});
           $('#modal2').modal('open', {dismissible: false});
           return;
@@ -64,10 +69,14 @@ class Fight extends React.Component {
         clearInterval(this.opponentInterval);
         let modalHeader = 'Congratulations!', modalContent = `You have defeated ${this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]}`;       
         if (this.state.gameMode === 'fight') {
-          let belt = this.props.beltPromotion(this.state.levelId);
+          let belt = this.props.beltPromotion(this.state.levelId);                    
           if (belt) {
             modalContent += ` and have been promoted to ${belt} belt`;
           }    
+          this.props.updateUser(true, true, belt);
+        }
+        else {
+          this.props.updateUser(false);
         }
         modalContent += '!';
         this.setState({opponentHealth, modalHeader, modalContent});
@@ -108,7 +117,7 @@ class Fight extends React.Component {
       </div>
       <div className="row"> 
         <div className="col s5">
-          <Player avatar={this.props.user.img} name={this.props.user.username} health={this.state.playerHealth} />
+          <Player avatar={this.props.user.avatarUrl} name={this.props.user.username} health={this.state.playerHealth} />
         </div>
         <div className="col s5 offset-s2">
           <Player avatar={`/images/${this.state.gameMode}-200-${this.props.levels[this.state.levelId-1].belt}.png`} name={this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]} health={this.state.opponentHealth} />

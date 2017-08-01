@@ -1,132 +1,320 @@
 {
-    "users": [
+  "users": [
+    {
+      "id": 1,
+      "img": "https://avatars7.githubusercontent.com/u/11863966?v=4&s=200",
+      "username": "exsqzme",
+      "created": "7/15/2017",
+      "belts": [
+        "white"
+      ],
+      "fightData": {
+        "fightsWon": 6,
+        "fightsLost": 3,
+        "sparCount": 36
+      }
+    }
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "title": "Basics",
+      "description": "In this lesson you will learn about REGEX Basics",
+      "picture": "https://cdn.pixabay.com/photo/2017/01/03/22/53/sunrise-1950873_1280.jpg",
+      "techniques": [
         {
-            "id": 1,
-            "img": "https://avatars7.githubusercontent.com/u/11863966?v=4&s=200",
-            "username": "exsqzme",
-            "created": "7/15/2017",
-            "belts": [
-            ],
-            "fightData": {    
-                "fightsWon": 5,
-                "fightsLost": 2,
-                "sparringSessions": 34
-            }
-        }        
-    ],
-    "levels": [
-        {
-            "id": 1,
-            "title": "Basics",
-            "description": "In this lesson you will learn about REGEX Basics",
-            "picture": "https://cdn.pixabay.com/photo/2017/01/03/22/53/sunrise-1950873_1280.jpg",
-            "techniques": [
-                { "id": 1, "meta": "*", "description": "Match preceding character 0 or more times" },
-                { "id": 2, "meta": "+",  "description": "Match preceding character 1 or more times" },
-                { "id": 3, "meta": ".", "description": "Match any single character" },
-                { "id": 4, "meta": "x|y", "description": "Match either 'x' or 'y'" },
-                { "id": 5, "meta": "\\", "description": "Escape a special character" },
-                { "id": 6, "meta": "b", "description": "The character b" },
-                { "id": 7, "meta": "abc", "description": "The string abc" },
-                { "id": 8, "meta": "g", "description": "Global search" },
-                { "id": 9, "meta": "i", "description": "Case-insensitive search" },
-                { "id": 10, "meta": "m", "description": "Multi-line search" },
-                { "id": 11, "meta": "y", "description": "'sticky' search match starting at current position in target string" }      
-            ],
-            "opponents": {
-                "spar": "Newbie",
-                "fight": "Bad Guy"
-            },
-            "belt": "white"
+          "id": 1,
+          "meta": "*",
+          "description": "Match preceding character 0 or more times"
         },
         {
-            "id": 2,
-            "title": "Character Classes",
-            "description": "In this lesson you will learn about REGEX Character Classes",
-            "picture": "https://cdn.pixabay.com/photo/2016/03/21/10/44/desert-1270345_1280.jpg",
-            "techniques": [
-                { "id": 1, "meta": "\\d", "description": "Match a digit character" },
-                { "id": 2, "meta": "\\D", "description": "Match a non-digit character" },
-                { "id": 3, "meta": "\\s", "description": "Match a single white space character (space, tab, form feed, or line feed" },
-                { "id": 4, "meta": "\\S", "description": "Match a single character other than white space" },
-                { "id": 5, "meta": "\\w", "description": "Match any alphanumeric character (including underscore)" },
-                { "id": 6, "meta": "\\W", "description": "Match any non-word character "},
-                { "id": 7, "meta": "[abc]", "description": "Match any one of the characters in the set 'abc'" },
-                { "id": 8, "meta": "[^abc]", "description": "Match anything not in character set 'abc'" },
-                { "id": 9, "meta": "[\\b]", "description": "Match a backspace" }
-            ],
-            "opponents": {
-                "spar": "Newbie",
-                "fight": "Bad Guy"
-            },
-            "belt": "blue"
+          "id": 2,
+          "meta": "+",
+          "description": "Match preceding character 1 or more times"
         },
         {
-            "id": 3,
-            "title": "Assertions",
-            "description": "In this lesson you will learn about REGEX Assertions",
-            "picture": "https://cdn.pixabay.com/photo/2016/11/18/16/04/tree-1835529_1280.jpg",
-            "techniques": [
-                { "id": 1, "meta": "^", "description": "Match beginning of input" },
-                { "id": 2, "meta": "$", "description": "Match end of input" },
-                { "id": 3, "meta": "\\b", "description": "Match a word boundary" },
-                { "id": 4, "meta": "\\B", "description": "Match a non-word boundary" },
-                { "id": 5, "meta": "?=", "description": "Lookahead" },
-                { "id": 6, "meta": "?!", "description": "Negative lookahead" },
-                { "id": 7, "meta": "?<=", "description": "Lookbehind" },
-                { "id": 8, "meta": "?<!", "description": "Negative lookbehind" },
-                { "id": 9, "meta": "?>", "description": "Once-only subexpression" },
-                { "id": 10, "meta": "?()", "description": "If then condition" },
-                { "id": 11, "meta": "?()|", "description": "If then else condition" },
-                { "id": 12, "meta": "?#", "description": "Comment" }
-            ],
-            "opponents": {
-                "spar": "Newbie",
-                "fight": "Bad Guy"
-            },
-            "belt": "purple"
+          "id": 3,
+          "meta": ".",
+          "description": "Match any single character"
         },
         {
-            "id": 4,
-            "title": "Quantifiers & Groups",
-            "description": "In this lesson you will learn about REGEX Quantifiers and Groups",
-            "picture": "https://cdn.pixabay.com/photo/2016/08/09/21/54/patagonia-1581878_1280.jpg",
-            "techniques": [
-                { "id": 1, "meta": "{n}", "description": "Match exactly n occurrences of preceding character" },
-                { "id": 2, "meta": "{n,m}", "description": "Match at least n and at most m occurrences of the preceding character" },
-                { "id": 3, "meta": "?", "description": "Match 0 or 1" },
-                { "id": 4, "meta": "(x)", "description": "Match 'x' and remember the match" },
-                { "id": 5, "meta": "(?:x)", "description": "Match 'x' but do not remember the match" },
-                { "id": 6, "meta": "\\n", "description": "A back reference to the last substring matching the n parenthetical in the regex" }        
-            ],
-            "opponents": {
-                "spar": "Newbie",
-                "fight": "Bad Guy"
-            },
-            "belt": "brown"
+          "id": 4,
+          "meta": "x|y",
+          "description": "Match either 'x' or 'y'"
         },
         {
-            "id": 5,
-            "title": "Special Characters",
-            "description": "In this lesson you will learn about REGEX Special Characters",
-            "picture": "https://cdn.pixabay.com/photo/2014/11/13/23/33/glacier-530050_1280.jpg",
-            "techniques": [
-                { "id": 1, "meta": "\\cX", "description": "Match control character X in a string" },
-                { "id": 2, "meta": "\\n", "description": "Match a line feed" },
-                { "id": 3, "meta": "\\r", "description": "Match a carriage return" },
-                { "id": 4, "meta": "\\t", "description": "Match a tab" },
-                { "id": 5, "meta": "\\0", "description": "Match a NULL" },    
-                { "id": 6, "meta": "\\f", "description": "Match a form feed" },
-                { "id": 7, "meta": "\\v", "description": "Match a vertical tab" },
-                { "id": 8, "meta": "\\xhh", "description": "Match character with code hh (2 hex digits)" },
-                { "id": 9, "meta": "\\uhhhh", "description": "Match character with code hhhh (4 hex digits)" }      
-            ],
-            "opponents": {
-                "spar": "Newbie",
-                "fight": "Bad Guy"
-            },
-            "belt": "black"
-        }          
-    ]
+          "id": 5,
+          "meta": "\\",
+          "description": "Escape a special character"
+        },
+        {
+          "id": 6,
+          "meta": "b",
+          "description": "The character b"
+        },
+        {
+          "id": 7,
+          "meta": "abc",
+          "description": "The string abc"
+        },
+        {
+          "id": 8,
+          "meta": "g",
+          "description": "Global search"
+        },
+        {
+          "id": 9,
+          "meta": "i",
+          "description": "Case-insensitive search"
+        },
+        {
+          "id": 10,
+          "meta": "m",
+          "description": "Multi-line search"
+        },
+        {
+          "id": 11,
+          "meta": "y",
+          "description": "'sticky' search match starting at current position in target string"
+        }
+      ],
+      "opponents": {
+        "spar": "Newbie",
+        "fight": "Bad Guy"
+      },
+      "belt": "white"
+    },
+    {
+      "id": 2,
+      "title": "Character Classes",
+      "description": "In this lesson you will learn about REGEX Character Classes",
+      "picture": "https://cdn.pixabay.com/photo/2016/03/21/10/44/desert-1270345_1280.jpg",
+      "techniques": [
+        {
+          "id": 1,
+          "meta": "\\d",
+          "description": "Match a digit character"
+        },
+        {
+          "id": 2,
+          "meta": "\\D",
+          "description": "Match a non-digit character"
+        },
+        {
+          "id": 3,
+          "meta": "\\s",
+          "description": "Match a single white space character (space, tab, form feed, or line feed"
+        },
+        {
+          "id": 4,
+          "meta": "\\S",
+          "description": "Match a single character other than white space"
+        },
+        {
+          "id": 5,
+          "meta": "\\w",
+          "description": "Match any alphanumeric character (including underscore)"
+        },
+        {
+          "id": 6,
+          "meta": "\\W",
+          "description": "Match any non-word character "
+        },
+        {
+          "id": 7,
+          "meta": "[abc]",
+          "description": "Match any one of the characters in the set 'abc'"
+        },
+        {
+          "id": 8,
+          "meta": "[^abc]",
+          "description": "Match anything not in character set 'abc'"
+        },
+        {
+          "id": 9,
+          "meta": "[\\b]",
+          "description": "Match a backspace"
+        }
+      ],
+      "opponents": {
+        "spar": "Newbie",
+        "fight": "Bad Guy"
+      },
+      "belt": "blue"
+    },
+    {
+      "id": 3,
+      "title": "Assertions",
+      "description": "In this lesson you will learn about REGEX Assertions",
+      "picture": "https://cdn.pixabay.com/photo/2016/11/18/16/04/tree-1835529_1280.jpg",
+      "techniques": [
+        {
+          "id": 1,
+          "meta": "^",
+          "description": "Match beginning of input"
+        },
+        {
+          "id": 2,
+          "meta": "$",
+          "description": "Match end of input"
+        },
+        {
+          "id": 3,
+          "meta": "\\b",
+          "description": "Match a word boundary"
+        },
+        {
+          "id": 4,
+          "meta": "\\B",
+          "description": "Match a non-word boundary"
+        },
+        {
+          "id": 5,
+          "meta": "?=",
+          "description": "Lookahead"
+        },
+        {
+          "id": 6,
+          "meta": "?!",
+          "description": "Negative lookahead"
+        },
+        {
+          "id": 7,
+          "meta": "?<=",
+          "description": "Lookbehind"
+        },
+        {
+          "id": 8,
+          "meta": "?<!",
+          "description": "Negative lookbehind"
+        },
+        {
+          "id": 9,
+          "meta": "?>",
+          "description": "Once-only subexpression"
+        },
+        {
+          "id": 10,
+          "meta": "?()",
+          "description": "If then condition"
+        },
+        {
+          "id": 11,
+          "meta": "?()|",
+          "description": "If then else condition"
+        },
+        {
+          "id": 12,
+          "meta": "?#",
+          "description": "Comment"
+        }
+      ],
+      "opponents": {
+        "spar": "Newbie",
+        "fight": "Bad Guy"
+      },
+      "belt": "purple"
+    },
+    {
+      "id": 4,
+      "title": "Quantifiers & Groups",
+      "description": "In this lesson you will learn about REGEX Quantifiers and Groups",
+      "picture": "https://cdn.pixabay.com/photo/2016/08/09/21/54/patagonia-1581878_1280.jpg",
+      "techniques": [
+        {
+          "id": 1,
+          "meta": "{n}",
+          "description": "Match exactly n occurrences of preceding character"
+        },
+        {
+          "id": 2,
+          "meta": "{n,m}",
+          "description": "Match at least n and at most m occurrences of the preceding character"
+        },
+        {
+          "id": 3,
+          "meta": "?",
+          "description": "Match 0 or 1"
+        },
+        {
+          "id": 4,
+          "meta": "(x)",
+          "description": "Match 'x' and remember the match"
+        },
+        {
+          "id": 5,
+          "meta": "(?:x)",
+          "description": "Match 'x' but do not remember the match"
+        },
+        {
+          "id": 6,
+          "meta": "\\n",
+          "description": "A back reference to the last substring matching the n parenthetical in the regex"
+        }
+      ],
+      "opponents": {
+        "spar": "Newbie",
+        "fight": "Bad Guy"
+      },
+      "belt": "brown"
+    },
+    {
+      "id": 5,
+      "title": "Special Characters",
+      "description": "In this lesson you will learn about REGEX Special Characters",
+      "picture": "https://cdn.pixabay.com/photo/2014/11/13/23/33/glacier-530050_1280.jpg",
+      "techniques": [
+        {
+          "id": 1,
+          "meta": "\\cX",
+          "description": "Match control character X in a string"
+        },
+        {
+          "id": 2,
+          "meta": "\\n",
+          "description": "Match a line feed"
+        },
+        {
+          "id": 3,
+          "meta": "\\r",
+          "description": "Match a carriage return"
+        },
+        {
+          "id": 4,
+          "meta": "\\t",
+          "description": "Match a tab"
+        },
+        {
+          "id": 5,
+          "meta": "\\0",
+          "description": "Match a NULL"
+        },
+        {
+          "id": 6,
+          "meta": "\\f",
+          "description": "Match a form feed"
+        },
+        {
+          "id": 7,
+          "meta": "\\v",
+          "description": "Match a vertical tab"
+        },
+        {
+          "id": 8,
+          "meta": "\\xhh",
+          "description": "Match character with code hh (2 hex digits)"
+        },
+        {
+          "id": 9,
+          "meta": "\\uhhhh",
+          "description": "Match character with code hhhh (4 hex digits)"
+        }
+      ],
+      "opponents": {
+        "spar": "Newbie",
+        "fight": "Bad Guy"
+      },
+      "belt": "black"
+    }
+  ]
 }
-
