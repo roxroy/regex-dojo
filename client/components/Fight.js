@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Player from './Player'
 import Game from './Game'
 import Cheatsheet from './Cheatsheet'
@@ -110,7 +111,10 @@ class Fight extends React.Component {
   }   
 
   render() {    
-    return <div className="spar">
+    return <div className="spar">   
+      <Link to="/app/dojo" className="waves-effect waves-teal btn-flat pink-text text-accent-2 back-btn">
+        <i className="material-icons left">arrow_back</i>Back
+      </Link>
       <div className="row center-align spar-title">
         <h3 className='pink-text text-accent-2'>{this.state.gameMode}</h3>
         <p className="flow-text text-darken-4">{this.state.level}</p>

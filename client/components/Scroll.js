@@ -1,4 +1,5 @@
 import React from 'react'
+import { findDOMNode } from 'react-dom'
 import { Route } from 'react-router-dom'
 import Map from './Map'
 import Train from './Train'
@@ -46,10 +47,14 @@ class Scroll extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    findDOMNode(this).scrollIntoView()
+  }  
+
   render() {
     if (!this.state.loading) document.querySelectorAll(".scroll-body")[0].classList.remove("scroll-folded");
-    return <div>
-        <div className="scroll"></div>
+    return <div className="scroll">
+        <div className="scroll-handle"></div>
             <div className="scroll-body scroll-folded">        
               <Route exact path={`${this.props.match.url}`} render={()=>                
                 <Map levels={this.state.levels} user={this.state.profile} />
@@ -64,7 +69,7 @@ class Scroll extends React.Component {
                 <Fight gameMode={props.match.path.split('/').pop()} level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} user={this.state.profile} beltPromotion={this.beltPromotion} updateUser={this.updateUser} />
               }/>
             </div>  
-        <div className="scroll"></div>        
+        <div className="scroll-handle"></div>        
     </div>
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import quizzService from '../services/quizzService'
 
 class Train extends React.Component {
@@ -16,8 +17,11 @@ class Train extends React.Component {
 
   render() {
     return <div className="train">
-      <div className="row center-align">
-        <h3 className='pink-text text-accent-2'>TRAIN</h3>
+      <Link to="/app/dojo" className="waves-effect waves-teal btn-flat pink-text text-accent-2 back-btn">
+        <i className="material-icons left">arrow_back</i>Back
+      </Link>      
+      <div className="row center-align train-title">
+        <h3 className='pink-text text-accent-2'>train</h3>
         <p className="flow-text text-darken-4">{this.props.level}</p>
       </div>      
       <div className="carousel" height='300px'>      
