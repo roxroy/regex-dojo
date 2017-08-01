@@ -55,7 +55,7 @@ class Scroll extends React.Component {
                 <Map levels={this.state.levels} user={this.state.profile} />
               }/>
               <Route exact path={`${this.props.match.url}/level/:level/train`} render={(props)=>
-                <Train gameMode={props.match.path.split('/').pop()} level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} user={this.state.profile} />
+                <Train level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} />
               }/>
               <Route exact path={`${this.props.match.url}/level/:level/spar`} render={(props)=>
                 <Fight gameMode={props.match.path.split('/').pop()} level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} user={this.state.profile} updateUser={this.updateUser} />

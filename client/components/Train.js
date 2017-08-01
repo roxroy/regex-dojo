@@ -2,28 +2,34 @@ import React from 'react'
 import quizzService from '../services/quizzService'
 
 class Train extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      levelId: props.location.state.levelId,
-      flashcards: [],
-    };
-  }
-
   componentWillMount() {
     document.querySelectorAll(".scroll-body")[0].classList.add("scroll-train");
-    const flashcards = quizzService.getFlashCards(levelData, this.state.levelId);
-    this.state = {
-      flashcards: flashcards,
-    };
   }
 
   componentWillUnmount() {
     document.querySelectorAll(".scroll-body")[0].classList.remove("scroll-train");      
   }  
 
+  componentDidMount() {
+    $('.carousel').carousel();
+  }
+
   render() {
-    return <div>Train</div>
+    return <div className="train">
+      <div className="row center-align">
+        <h3 className='pink-text text-accent-2'>TRAIN</h3>
+        <p className="flow-text text-darken-4">{this.props.level}</p>
+      </div>      
+      <div className="carousel" height='300px'>      
+        {this.props.levels.find((level)=>level.id === this.props.levelId).techniques.map((technique, i, arr) => {
+            return <div key={technique.id} className="center-align carousel-item teal lighten-3">                
+              <h3 className='pink-text text-accent-2'>{technique.meta}</h3>
+              <p className='grey-text text-darken-4'>{technique.description}</p>
+              <p className='pink-text text-accent-2 carousel-footer'>{i+1}/{arr.length}</p>
+            </div>
+        })}      
+      </div>
+    </div>
   }
 }
 
