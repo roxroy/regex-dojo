@@ -68,7 +68,7 @@ class Fight extends React.Component {
 
       if (opponentHealth <= 0) {
         clearInterval(this.opponentInterval);
-        let modalHeader = 'Congratulations!', modalContent = `You have defeated ${this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]}`;       
+        let modalHeader = 'Congratulations!', modalContent = `You have defeated ${this.props.levels[this.state.levelId].opponents[this.state.gameMode]}`;       
         if (this.state.gameMode === 'fight') {
           let belt = this.props.beltPromotion(this.state.levelId);                    
           if (belt) {
@@ -107,6 +107,7 @@ class Fight extends React.Component {
   }
 
   componentWillUnmount() {
+      clearInterval(this.opponentInterval);
       document.querySelectorAll(".scroll-body")[0].classList.remove("scroll-fight");      
   }   
 
@@ -124,7 +125,7 @@ class Fight extends React.Component {
           <Player avatar={this.props.user.avatarUrl} name={this.props.user.username} health={this.state.playerHealth} />
         </div>
         <div className="col s5 offset-s2">
-          <Player avatar={`/images/${this.state.gameMode}-200-${this.props.levels[this.state.levelId-1].belt}.png`} name={this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]} health={this.state.opponentHealth} />
+          <Player avatar={`/images/${this.state.gameMode}-200-${this.props.levels[this.state.levelId].belt}.png`} name={this.props.levels[this.state.levelId].opponents[this.state.gameMode]} health={this.state.opponentHealth} />
         </div>        
       </div>
       <div className="game-container center-align">
@@ -140,7 +141,7 @@ class Fight extends React.Component {
           : ''
         }
       </div>            
-      <Cheatsheet answers={this.props.levels.find((level)=>level.id === this.state.levelId)} />     
+      <Cheatsheet answers={this.props.levels[this.state.levelId]} />     
       <Modal modalHeader={this.state.modalHeader} modalContent={this.state.modalContent} startGame={this.startGame} />
     </div>
   }

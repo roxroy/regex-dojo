@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom'
 class Level extends React.Component {
   render() {
     return <div className="card level">
+        {this.props.locked 
+            ? <div className="level-locked valign-wrapper">
+                <i className="material-icons teal-text text-accent-2 ">lock_outline</i>
+              </div>  
+            : ''
+        }       
         <div className="card-image waves-effect waves-block waves-light">
-            <img className="activator" src={this.props.pic}/>
+            <img className="activator" src={this.props.pic}/>           
         </div>
         <div className="card-content grey lighten-5">
             <span className="card-title activator grey-text text-darken-4">{this.props.level}<i className="material-icons right">more_vert</i></span>

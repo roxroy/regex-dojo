@@ -13,9 +13,12 @@ class Map extends React.Component {
           </div>
         </div>                    
           <div className="row">
-            {this.props.levels.map((obj, i) => {
+            {this.props.levels.map((level, i) => {
               return <div className="col s12 m6" key={i}>
-                <Level level={obj.title} levelId={obj.id} description={obj.description} pic={obj.picture} />
+                {i == 0 || this.props.user.fightData.belts.indexOf(this.props.levels[i-1].belt) > -1
+                  ? <Level level={level.title} levelId={i} description={level.description} pic={level.picture} />
+                  : <Level locked level={level.title} levelId={i} description={level.description} pic={level.picture} />
+                }
               </div>
             })}
           </div>      

@@ -10,6 +10,8 @@ const session = require('express-session');
 mongoose.connect('mongodb://localhost:5000/regex');
 mongoose.Promise = global.Promise;
 
+require('./util/seed');
+
 const app = express();
 
 require('dotenv').load();

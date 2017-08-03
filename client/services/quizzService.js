@@ -5,8 +5,7 @@ const randomRange = (min, max) => {
 const getFlashCards = (levelData, levelId) => {
 
   // Get the corresponding description & meta data
-  const flashCards = levelData
-    .find(level => level.id === levelId)
+  const flashCards = levelData[levelId]
     .techniques.map( technique =>  {
       return {
         question: technique.description,
@@ -21,12 +20,12 @@ const getQuestion = (levelData, levelId, questionId) => {
   const MAX_ANSWERS = 4;
 
   // Select a new question not previously selected
-  const questionPool = levelData.find((level)=>level.id === levelId).techniques.filter((question)=>question.id !== questionId);
+  const questionPool = levelData[levelId].techniques.filter((question, i)=>i !== questionId);
   const quizzQuestion = questionPool[randomRange(0, questionPool.length-1)];
 
   // generate answer pool without current question and
-  let answerPool = levelData.reduce((answers, level)=> {
-    if (level.id > levelId) return answers;
+  let answerPool = levelData.reduce((answers, level, i)=> {
+    if (i > levelId) return answers;
     return answers.concat(level.techniques);      
   },[])
 
@@ -36,9 +35,9 @@ const getQuestion = (levelData, levelId, questionId) => {
   for (let i = 0; i < MAX_ANSWERS; i++) {
     answers.push(answerPool.splice(randomRange(0, answerPool.length-1),1)[0]);
   }
-
+  // TODO: error answer i
   // Setup correct answer
-  if (!answers.find((answer)=>answer.id === quizzQuestion.id))    
+  if (!answers.find((answer, i)=>i === quizzQuestion.id))    
     answers[randomRange(0, answers.length-1)] = quizzQuestion;
 
   return {

@@ -20,7 +20,7 @@ class Scroll extends React.Component {
   }
   
   beltPromotion(levelId) {
-    let belt = this.state.levels.find((level)=> level.id === levelId).belt;
+    let belt = this.state.levels[levelId].belt;
     if (this.state.profile.fightData.belts.indexOf(belt) === -1) {
       return belt;
     }
@@ -55,7 +55,7 @@ class Scroll extends React.Component {
     if (!this.state.loading) document.querySelectorAll(".scroll-body")[0].classList.remove("scroll-folded");
     return <div className="scroll">
         <div className="scroll-handle"></div>
-            <div className="scroll-body scroll-folded">        
+            <div className="scroll-body scroll-folded">        {/* level={this.state.levels[props.location.state.levelId]} */}
               <Route exact path={`${this.props.match.url}`} render={()=>                
                 <Map levels={this.state.levels} user={this.state.profile} />
               }/>
