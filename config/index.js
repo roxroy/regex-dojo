@@ -1,6 +1,7 @@
-require('dotenv').load();
-
 let config = {};
+
+
+if (process.env.NODE_ENV != 'production') require('dotenv').load();
 
 // ---------------------------------------------------------------
 // Config values common across environments (overridable defaults)
