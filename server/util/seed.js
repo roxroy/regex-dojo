@@ -253,8 +253,10 @@ var levels = [
     }
 ];
 
-var promises = levels.map(function(level) {
-    return (new Level(level)).save();
-});
+Level.remove({}, function(err) {
+  var promises = levels.map(function(level) {
+      return (new Level(level)).save();
+  });
 
-Promise.all(promises);
+  Promise.all(promises);
+});

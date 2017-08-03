@@ -5,16 +5,16 @@ const routes = require('./routes')
 const routesApi = require('../api/routes')
 const mongoose = require('mongoose')
 const passport = require('passport')
-const session = require('express-session');
+const session = require('express-session')
+const config = require('../config')
 
-mongoose.connect('mongodb://localhost:5000/regex');
+mongoose.connect(config.databaseUrl);
 mongoose.Promise = global.Promise;
 
-require('./util/seed');
+if (config.seed) require('./util/seed');
 
 const app = express();
 
-require('dotenv').load();
 require('./config/passport')(passport);
 
 app.use(session({
@@ -45,4 +45,4 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => res.status(err.status || 500).send());
 
-app.listen(process.env.PORT || 3000);
+app.listen(config.port);

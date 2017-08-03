@@ -29,13 +29,13 @@ class Scroll extends React.Component {
   }
 
   updateUser(isFight, won, belt) {       
-    axios.put("http://localhost:3000/api/users/1", { isFight, won, belt }).then((res)=>res.data).then((profile)=>this.setState({profile}));        
+    axios.put("/api/users/1", { isFight, won, belt }).then((res)=>res.data).then((profile)=>this.setState({profile}));        
   }  
 
   componentWillMount() {    
-    let user = axios.get("http://localhost:3000/api/users/1")
+    let user = axios.get("/api/users/1")
       .then((res) => res.data);
-    let levels = axios.get("http://localhost:3000/api/levels")
+    let levels = axios.get("/api/levels")
       .then((res) => res.data);
 
     Promise.all([user, levels]).then(([user, levels]) => {
