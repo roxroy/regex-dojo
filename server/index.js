@@ -11,7 +11,8 @@ const config = require('../config')
 mongoose.connect(config.databaseUrl);
 mongoose.Promise = global.Promise;
 
-if (config.seed) require('./util/seed');
+// if (config.seed) require('./util/seed');
+require('./util/seed');
 
 const app = express();
 
