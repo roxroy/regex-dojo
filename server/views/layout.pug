@@ -20,22 +20,22 @@ html(lang='en')
             i.material-icons.black-text menu
           ul.right.hide-on-med-and-down
             li
-              a.black-text(href='/') Home
-            li
-              a.black-text(href='/app/dojo') Dashboard
-            li
-              a.black-text(href='/about') About
-            li
-              a.black-text(href='/signin') Sign in
+              a.black-text(href='/') Home          
+            if (signout)
+              li
+                a.black-text(href='/signout') Sign Out
+            else
+              li
+                a.black-text(href='/signin') Sign In    
     ul#nav-mobile.side-nav.grey.lighten-5
       li
-        a.black-text(href='/') Home
-      li
-        a.black-text(href='/app/dojo') Dashboard
-      li
-        a.black-text(href='/about') About
-      li
-        a.black-text(href='/signin') Sign in       
+        a.black-text(href='/') Home    
+      if (signout)
+        li
+          a.black-text(href='/signout') Sign Out
+      else
+        li
+          a.black-text(href='/signin') Sign In 
     block content   
   footer.page-footer.blue-grey.lighten-5
     div.container
@@ -44,18 +44,14 @@ html(lang='en')
           h5.black-text Links
           ul
             li
-              a.black-text.text-lighten-3(href="#!") Home
+              a.black-text.text-lighten-3(href="/") Home
             li
-              a.black-text.text-lighten-3(href="#!") About
+              a.black-text.text-lighten-3(href="/credits") Credits
         div.col.l4.offset-l2.s12
           h5.black-text Connect
           ul
             li
-              a.black-text.text-lighten-3(href="#!") Github
-            li
-              a.black-text.text-lighten-3(href="#!") Share Twitter
-            li
-              a.black-text.text-lighten-3(href="#!") Share Facebook
+              a.black-text.text-lighten-3(href="https://github.com/roxroy/regex-dojo") Github
     div.footer-copyright
       div.container.black-text © 2017 Copyright Text    
   script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")

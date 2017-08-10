@@ -7,6 +7,7 @@
 }
 
 .scroll-handle {
+  /*http://lea.verou.me/css3patterns/#carbon-fibre*/
   width: 100%;
   height: 50px;
   border-radius: 30px;
@@ -21,6 +22,7 @@
 }
 
 .scroll-body {
+  /*http://lea.verou.me/css3patterns/#chocolate-weave*/
   max-height: 6000px;
   width: 90%;
   margin: 0 auto;
@@ -35,6 +37,7 @@
 
 
 .scroll-train {
+  /*http://lea.verou.me/css3patterns/#seigaiha*/
   background-color:silver;
   background-image: 
   radial-gradient(circle at 100% 150%, silver 24%, white 25%, white 28%, silver 29%, silver 36%, white 36%, white 40%, transparent 40%, transparent),
