@@ -19,7 +19,7 @@ class Profile extends React.Component {
                         }
                     </dd>
                     <dt>Member Since:</dt>
-                    <dd>{this.props.profile.createdDate}</dd>
+                    <dd>{(new Date (this.props.profile.createdDate)).toDateString().split(' ').splice(1).join(' ')}</dd>
                     <dt>Total Sparring Sessions:</dt>
                     <dd>{this.props.profile.fightData.sparCount}</dd>
                     <dt>Fight Record:</dt>

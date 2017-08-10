@@ -28351,7 +28351,7 @@ var Profile = function (_React$Component) {
                             _react2.default.createElement(
                                 "dd",
                                 null,
-                                this.props.profile.createdDate
+                                new Date(this.props.profile.createdDate).toDateString().split(' ').splice(1).join(' ')
                             ),
                             _react2.default.createElement(
                                 "dt",
