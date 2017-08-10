@@ -2,54 +2,33 @@ const randomRange = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const getFlashCards = (levelData, levelId) => {
-
-  // Get the corresponding description & meta data
-  const flashCards = levelData[levelId]
-    .techniques.map( technique =>  {
-      return {
-        question: technique.description,
-        answer: technique.meta,
-      }
-    });
-
-  return flashCards;
-}
-
-const getQuestion = (levelData, levelId, questionId) => {
+const getQuestion = (levelData, questionId) => {
   const MAX_ANSWERS = 4;
+  var newQuestionIndex;
+  let answers = [];
 
-  // Select a new question not previously selected
-  const questionPool = levelData[levelId].techniques.filter((question, i)=>i !== questionId);
-  const quizzQuestion = questionPool[randomRange(0, questionPool.length-1)];
+  // Select a new question not previously selected  
+  do {
+    newQuestionIndex = randomRange(0, levelData.length-1);
+  } while (newQuestionIndex == questionId) 
 
-  // generate answer pool without current question and
-  let answerPool = levelData.reduce((answers, level, i)=> {
-    if (i > levelId) return answers;
-    return answers.concat(level.techniques);      
-  },[])
+  const answerPool = levelData.filter((answer, i)=> i != newQuestionIndex);
 
-  let answers = []; 
-
-  // Find some random answers within current and previous levels
   for (let i = 0; i < MAX_ANSWERS; i++) {
     answers.push(answerPool.splice(randomRange(0, answerPool.length-1),1)[0]);
   }
-  // TODO: error answer i
-  // Setup correct answer
-  if (!answers.find((answer, i)=>i === quizzQuestion.id))    
-    answers[randomRange(0, answers.length-1)] = quizzQuestion;
+
+  answers[randomRange(0, answers.length-1)] = levelData[newQuestionIndex];
 
   return {
-      question: quizzQuestion.description,
-      answers: answers.map(item => item.meta),
-      correctAnswer: quizzQuestion.meta,
-      questionId: quizzQuestion.id
-    }
+    question: levelData[newQuestionIndex].description,
+    answers: answers.map(item => item.meta),
+    correctAnswer: levelData[newQuestionIndex].meta,
+    questionId: newQuestionIndex
+  }
 }
 
 module.exports = {
   getQuestion,
-  getFlashCards,
   randomRange
 }

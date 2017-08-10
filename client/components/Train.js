@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import quizzService from '../services/quizzService'
 
 class Train extends React.Component {
   componentWillMount() {
@@ -25,7 +24,7 @@ class Train extends React.Component {
         <p className="flow-text text-darken-4">{this.props.level}</p>
       </div>      
       <div className="carousel" height='300px'>      
-        {this.props.levels[this.props.levelId].techniques.map((technique, i, arr) => {
+        {this.props.questions.map((technique, i, arr) => {
             return <div key={i} className="center-align carousel-item teal lighten-3">                
               <h3 className='pink-text text-accent-2'>{technique.meta}</h3>
               <p className='grey-text text-darken-4'>{technique.description}</p>

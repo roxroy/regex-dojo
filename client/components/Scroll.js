@@ -60,13 +60,34 @@ class Scroll extends React.Component {
                 <Map levels={this.state.levels} user={this.state.profile} />
               }/>
               <Route exact path={`${this.props.match.url}/level/:level/train`} render={(props)=>
-                <Train level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} />
+                <Train level={props.match.params.level}
+                questions={this.state.levels[props.location.state.levelId].techniques} />
               }/>
               <Route exact path={`${this.props.match.url}/level/:level/spar`} render={(props)=>
-                <Fight gameMode={props.match.path.split('/').pop()} level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} user={this.state.profile} updateUser={this.updateUser} />
+                <Fight gameMode={props.match.path.split('/').pop()}
+                  level={props.match.params.level}
+                  levelId={props.location.state.levelId}
+                  questions={this.state.levels[props.location.state.levelId].techniques}
+                  opponent={this.state.levels[props.location.state.levelId].opponents[props.match.path.split('/').pop()]}
+                  belt={this.state.levels[props.location.state.levelId].belt}                  
+                  user={this.state.profile}
+                  updateUser={this.updateUser} />
               }/>
               <Route exact path={`${this.props.match.url}/level/:level/fight`} render={(props)=>
-                <Fight gameMode={props.match.path.split('/').pop()} level={props.match.params.level} levelId={props.location.state.levelId} levels={this.state.levels} user={this.state.profile} beltPromotion={this.beltPromotion} updateUser={this.updateUser} />
+                <Fight gameMode={props.match.path.split('/').pop()}
+                  level={props.match.params.level}
+                  levelId={props.location.state.levelId}
+                  questions={this.state.levels.reduce((questions, level, i) => {
+                    if (i <= props.location.state.levelId) {
+                      questions = questions.concat(level.techniques);
+                    }
+                    return questions
+                  }, [])}
+                  opponent={this.state.levels[props.location.state.levelId].opponents[props.match.path.split('/').pop()]}
+                  belt={this.state.levels[props.location.state.levelId].belt}
+                  user={this.state.profile}
+                  beltPromotion={this.beltPromotion}
+                  updateUser={this.updateUser} />
               }/>
             </div>  
         <div className="scroll-handle"></div>        

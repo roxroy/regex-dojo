@@ -41,7 +41,7 @@ class Fight extends React.Component {
 
         if (playerHealth <= 0) {
           clearInterval(this.opponentInterval);          
-          let modalHeader = 'Nice Try!', modalContent = `You have been defeated by ${this.props.levels[this.state.levelId-1].opponents[this.state.gameMode]} :(`;       
+          let modalHeader = 'Nice Try!', modalContent = `You have been defeated by ${this.props.opponent} :(`;       
           if (this.state.gameMode === 'fight') {
             this.props.updateUser(true, false);
           } else {
@@ -68,7 +68,7 @@ class Fight extends React.Component {
 
       if (opponentHealth <= 0) {
         clearInterval(this.opponentInterval);
-        let modalHeader = 'Congratulations!', modalContent = `You have defeated ${this.props.levels[this.state.levelId].opponents[this.state.gameMode]}`;       
+        let modalHeader = 'Congratulations!', modalContent = `You have defeated ${this.props.opponent}`;       
         if (this.state.gameMode === 'fight') {
           let belt = this.props.beltPromotion(this.state.levelId);                    
           if (belt) {
@@ -92,7 +92,7 @@ class Fight extends React.Component {
   }
 
   getNextQuestion() {        
-    const question = quizzService.getQuestion(this.props.levels, this.state.levelId, this.state.currentQuizz.questionId);
+    const question = quizzService.getQuestion(this.props.questions, this.state.currentQuizz.questionId);
     this.setState({
       currentQuizz: question,
     });
@@ -125,7 +125,7 @@ class Fight extends React.Component {
           <Player avatar={this.props.user.avatarUrl} name={this.props.user.username} health={this.state.playerHealth} />
         </div>
         <div className="col s5 offset-s2">
-          <Player avatar={`/images/${this.state.gameMode}-200-${this.props.levels[this.state.levelId].belt}.png`} name={this.props.levels[this.state.levelId].opponents[this.state.gameMode]} health={this.state.opponentHealth} />
+          <Player avatar={`/images/${this.state.gameMode}-200-${this.props.belt}.png`} name={this.props.opponent} health={this.state.opponentHealth} />
         </div>        
       </div>
       <div className="game-container center-align">
@@ -141,7 +141,7 @@ class Fight extends React.Component {
           : ''
         }
       </div>            
-      <Cheatsheet answers={this.props.levels[this.state.levelId]} />     
+      <Cheatsheet answers={this.props.questions} />     
       <Modal modalHeader={this.state.modalHeader} modalContent={this.state.modalContent} startGame={this.startGame} />
     </div>
   }
