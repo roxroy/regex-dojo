@@ -1,5 +1,6 @@
 data
 .env
+public/build*
 
 # Dependency directories
 node_modules
