@@ -8,7 +8,11 @@ const passport = require('passport')
 const session = require('express-session')
 const config = require('../config')
 
-mongoose.connect(config.databaseUrl);
+var options = {
+  useMongoClient: true,
+};
+
+mongoose.connect(config.databaseUrl, options);
 mongoose.Promise = global.Promise;
 
 // if (config.seed) require('./util/seed');

@@ -38,6 +38,7 @@ Make a copy of `env.example` as `.env`
 ```
 cp env.example .env
 ```
+Update the corresponding keys and credentials.
 
 In a new terminal, go to the project folder, create a data folder and start mongo
 ```
